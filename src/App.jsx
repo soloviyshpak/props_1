@@ -1,66 +1,65 @@
-import React from 'react';
-import './index.css';
+import React from "react";
+import "./index.css";
 
 //Rus
-// 1 - Создать компонент <Card/>, который вложить в <CardContainer/>.
-// 2 - Создать компоненты <CardTag/>, которые вложить в <Card/>
-// 3 - Передать данные из объекта cardData в компонент <Card/> от компонента <CardContainer/> через пропсы вручную.
-// 4 - Передать данные тегов из объекта cardData в компоненты <CardTag/> от компонента <Card/> через пропсы вручную.
+// 1 - Создать динамически столько компонентов Card, сколько объектов в массиве с данными.
+// 2 - Использовать данные массива для передачи значений в пропсы компонентов.
+// 3 - Создать динамически теги на основе массива с тегами.
+// 4 - Использовать условный рендеринг для проверки свойства archived. Если archived: true, карточка не будет рендериться.
 
 //Eng
-// 1 - Create a <Card/> component and nest it within <CardContainer/>.
-// 2 - Create <CardTag/> components and nest them within <Card/>.
-// 3 - Pass data from the cardData object to the <Card/> component from <CardContainer/> manually via props.
-// 4 - Pass tag data from the cardData object to the <CardTag/> components from <Card/> manually via props.
+// 1 - Dynamically create as many Card components as there are objects in the data array.
+// 2 - Use the data from the array to pass values to the component props.
+// 3 - Dynamically create tags based on the tags array.
+// 4 - Use conditional rendering to check the archived property. If archived: true, the card will not be rendered.
 
 const cardData = [
   {
-    title: 'Мокка',
-    description: 'Развиваем финтех-продукт для международного рынка',
-    date: '24 апреля 2024',
-    imageUrl: '/img-1.jpeg',
-    tags: ['#финтех', '#международный', '#рынок'],
+    title: "Мокка",
+    description: "Развиваем финтех-продукт для международного рынка",
+    date: "24 апреля 2024",
+    imageUrl: "/img-1.jpeg",
+    tags: ["#финтех", "#международный", "#рынок"],
     archived: false,
   },
   {
-    title: 'Деньги Вперед',
-    description: 'Фронтенд и бэкенд для сервиса выплат зарплат по запросу',
-    date: '16 января 2024',
-    imageUrl: '/img-2.jpeg',
-    tags: ['#финансы', '#сервис', '#выплаты'],
+    title: "Деньги Вперед",
+    description: "Фронтенд и бэкенд для сервиса выплат зарплат по запросу",
+    date: "16 января 2024",
+    imageUrl: "/img-2.jpeg",
+    tags: ["#финансы", "#сервис", "#выплаты"],
     archived: false,
   },
   {
-    title: 'ResolHR',
-    description: 'Помогли HR-tech-стартапу с кастомизацией для VIP-клиентов',
-    date: '10 октября 2023',
-    imageUrl: '/img-3.jpeg',
-    tags: ['#HR', '#кастомизация', '#VIP'],
+    title: "ResolHR",
+    description: "Помогли HR-tech-стартапу с кастомизацией для VIP-клиентов",
+    date: "10 октября 2023",
+    imageUrl: "/img-3.jpeg",
+    tags: ["#HR", "#кастомизация", "#VIP"],
     archived: true,
   },
   {
-    title: 'ActivePlatform',
-    description: 'Интеграция Adobe и развитие платформы комплексной подписки',
-    date: '10 ноября 2022',
-    imageUrl: '/img-4.jpeg',
-    tags: ['#интеграция', '#платформа', '#подписка'],
+    title: "ActivePlatform",
+    description: "Интеграция Adobe и развитие платформы комплексной подписки",
+    date: "10 ноября 2022",
+    imageUrl: "/img-4.jpeg",
+    tags: ["#интеграция", "#платформа", "#подписка"],
     archived: false,
   },
   {
-    title: 'START',
-    description: 'Разработали платформу A/B тестов для стримингового сервиса',
-    date: '22 сентября 2022',
-    imageUrl: '/img-5.jpeg',
-    tags: ['#A/B тесты', '#стриминг', '#платформа'],
+    title: "START",
+    description: "Разработали платформу A/B тестов для стримингового сервиса",
+    date: "22 сентября 2022",
+    imageUrl: "/img-5.jpeg",
+    tags: ["#A/B тесты", "#стриминг", "#платформа"],
     archived: false,
   },
   {
-    title: 'Mindbox',
-    description:
-      'Поддерживаем редизайн платформы автоматизированного маркетинга',
-    date: '21 сентября 2022',
-    imageUrl: '/img-6.jpeg',
-    tags: ['#маркетинг', '#редизайн', '#автоматизация'],
+    title: "Mindbox",
+    description: "Поддерживаем редизайн платформы автоматизированного маркетинга",
+    date: "21 сентября 2022",
+    imageUrl: "/img-6.jpeg",
+    tags: ["#маркетинг", "#редизайн", "#автоматизация"],
     archived: false,
   },
 ];
@@ -68,70 +67,21 @@ const cardData = [
 export default function CardContainer() {
   return (
     <div className="card-container">
-      <Card
-        name="Мокка"
-        img="/img-1.jpeg"
-        description="Развиваем финтех-продукт для международного рынка"
-        date="24 апреля 2024"
-        tags={['#финтех', '#международный', '#рынок']}
-        archived={false}
-      />
-      <Card
-        name="Деньги Вперед"
-        img="/img-2.jpeg"
-        description="Фронтенд и бэкенд для сервиса выплат зарплат по запросу"
-        date="16 января 2024"
-        tags={['#финансы', '#сервис', '#выплаты']}
-        archived={false}
-      />
-      <Card
-        name="ResolHR"
-        img="/img-3.jpeg"
-        description="Помогли HR-tech-стартапу с кастомизацией для VIP-клиентов"
-        date="10 октября 2023"
-        tags={['#HR', '#кастомизация', '#VIP']}
-        archived={true}
-      />
-      <Card
-        name="ActivePlatform"
-        img="/img-4.jpeg"
-        description="Интеграция Adobe и развитие платформы комплексной подписки"
-        date="10 ноября 2022'"
-        tags={['#интеграция', '#платформа', '#подписка']}
-        archived={false}
-      />
-      <Card
-        name="START"
-        img="/img-5.jpeg"
-        description="Разработали платформу A/B тестов для стримингового сервиса"
-        date="22 сентября 2022"
-        tags={['#A/B тесты', '#стриминг', '#платформа']}
-        archived={false}
-      />
-      <Card
-        name="Mindbox"
-        img="/img-6.jpeg"
-        description="Поддерживаем редизайн платформы автоматизированного маркетинга"
-        date="21 сентября 2022"
-        tags={['#маркетинг', '#редизайн', '#автоматизация']}
-        archived={false}
-      />
+      {cardData.map(card => <Card cardObj={card}/>)}
     </div>
   );
 }
 
-function Card(props) {
-  return (
+function Card({ cardObj }) {
+  return !cardObj.archived && (
     <div className="card">
-      <img className="card-image" src={props.img} alt={props.name} />
+      <img className="card-image" src={cardObj.imageUrl}></img>
       <div className="card-content">
-        <h2 className="card-title">{props.name}</h2>
-        <p className="card-description">{props.description}</p>
-        <div className="card-date">{props.date}</div>
+        <h2 className="card-title"> {cardObj.title}</h2>
+        <p className="card-description">{cardObj.description}</p>
+        <p className="card-date">{cardObj.date}</p>
         <div className="card-tags">
-          <CardTag tag={props.tags[0]} />
-          <CardTag tag={props.tags[1]} />
-          <CardTag tag={props.tags[2]} />
+          {cardObj.tags.map(tag => <CardTag tag={tag} />)}
         </div>
       </div>
     </div>
